@@ -99,139 +99,10 @@ export default class AppDirectoryWebPart extends BaseClientSideWebPart<IAppDirec
             {
               groupName: 'Information',
               groupFields: [
-                PropertyPaneTextField('PanelTitle', {
-                  label: 'Info Panel Title'
-                }),
                 PropertyPaneTextField('PanelContent', {
                   label: 'Info Panel Content (HTML)',
                   multiline: true,
-                  rows: 15
-                }),
-              ]
-            }
-          ]
-        },  
-        {
-          header: {
-            description: 'Featured Apps'
-          },
-          groups: [
-            {
-              groupName: 'App 1 Details',
-              groupFields: [
-                PropertyPaneTextField('featuredAppOneTitle', {
-                  label: 'Enter Title (alt tag)'
-                }),
-                PropertyPaneTextField('featuredAppOneImage', {
-                  label: 'Enter URL of image icon (70px X 70px)'
-                }),
-                PropertyPaneTextField('featuredAppOneUrl', {
-                  label: 'Enter URL of link'
-                }),
-              ]
-            }
-          ]
-        },  
-        {
-          header: {
-            description: 'Featured Apps'
-          },
-          groups: [
-            {
-              groupName: 'App 2 Details',
-              groupFields: [
-                PropertyPaneTextField('featuredAppTwoTitle', {
-                  label: 'Enter Title (alt tag)'
-                }),
-                PropertyPaneTextField('featuredAppTwoImage', {
-                  label: 'Enter URL of image icon (70px X 70px)'
-                }),
-                PropertyPaneTextField('featuredAppTwoUrl', {
-                  label: 'Enter URL of link'
-                }),
-              ]
-            }
-          ]
-        },  
-        {
-          header: {
-            description: 'Featured Apps'
-          },
-          groups: [
-            {
-              groupName: 'App 3 Details',
-              groupFields: [
-                PropertyPaneTextField('featuredAppThreeTitle', {
-                  label: 'Enter Title (alt tag)'
-                }),
-                PropertyPaneTextField('featuredAppThreeImage', {
-                  label: 'Enter URL of image icon (70px X 70px)'
-                }),
-                PropertyPaneTextField('featuredAppThreeUrl', {
-                  label: 'Enter URL of link'
-                }),
-              ]
-            }
-          ]
-        },  
-        {
-          header: {
-            description: 'Featured Apps'
-          },
-          groups: [
-            {
-              groupName: 'App 4 Details',
-              groupFields: [
-                PropertyPaneTextField('featuredAppFourTitle', {
-                  label: 'Enter Title (alt tag)'
-                }),
-                PropertyPaneTextField('featuredAppFourImage', {
-                  label: 'Enter URL of image icon (70px X 70px)'
-                }),
-                PropertyPaneTextField('featuredAppFourUrl', {
-                  label: 'Enter URL of link'
-                }),
-              ]
-            }
-          ]
-        },  
-        {
-          header: {
-            description: 'Featured Apps'
-          },
-          groups: [
-            {
-              groupName: 'App 5 Details',
-              groupFields: [
-                PropertyPaneTextField('featuredAppFiveTitle', {
-                  label: 'Enter Title (alt tag)'
-                }),
-                PropertyPaneTextField('featuredAppFiveImage', {
-                  label: 'Enter URL of image icon (70px X 70px)'
-                }),
-                PropertyPaneTextField('featuredAppFiveUrl', {
-                  label: 'Enter URL of link'
-                }),
-              ]
-            }
-          ]
-        },  
-        {
-          header: {
-            description: 'Featured Apps'
-          },
-          groups: [
-            {
-              groupName: 'App 6 Details',
-              groupFields: [
-                PropertyPaneTextField('featuredAppSixTitle', {
-                  label: 'Enter Title (alt tag)'
-                }),
-                PropertyPaneTextField('featuredAppSixImage', {
-                  label: 'Enter URL of image icon (70px X 70px)'
-                }),
-                PropertyPaneTextField('featuredAppSixUrl', {
-                  label: 'Enter URL of link'
+                  rows: 20
                 }),
               ]
             }
@@ -256,6 +127,132 @@ export default class AppDirectoryWebPart extends BaseClientSideWebPart<IAppDirec
                     { key: '5', text: '5' }, 
                     { key: '6', text: '6' },
                   ],
+                }),
+              ]
+            }
+          ]
+        },  
+        {
+          header: {
+            description: 'Featured Apps'
+          },
+          groups: [
+            {
+              groupName: 'App 1 Details',
+              groupFields: [
+                PropertyPaneTextField('featuredAppOneTitle', {
+                  label: 'Enter Title (alt tag)'
+                }),
+                PropertyPaneTextField('featuredAppOneImage', {
+                  label: 'Enter URL of image icon (70px X 70px)'
+                }),
+                PropertyPaneTextField('featuredAppOneUrl', {
+                  label: 'Enter link Url (include http:// or https://)'
+                }),
+              ]
+            }
+          ]
+        },  
+        {
+          header: {
+            description: 'Featured Apps'
+          },
+          groups: [
+            {
+              groupName: 'App 2 Details',
+              groupFields: [
+                PropertyPaneTextField('featuredAppTwoTitle', {
+                  label: 'Enter Title (alt tag)'
+                }),
+                PropertyPaneTextField('featuredAppTwoImage', {
+                  label: 'Enter URL of image icon (70px X 70px)'
+                }),
+                PropertyPaneTextField('featuredAppTwoUrl', {
+                  label: 'Enter link Url (include http:// or https://)'
+                }),
+              ]
+            }
+          ]
+        },  
+        {
+          header: {
+            description: 'Featured Apps'
+          },
+          groups: [
+            {
+              groupName: 'App 3 Details',
+              groupFields: [
+                PropertyPaneTextField('featuredAppThreeTitle', {
+                  label: 'Enter Title (alt tag)'
+                }),
+                PropertyPaneTextField('featuredAppThreeImage', {
+                  label: 'Enter URL of image icon (70px X 70px)'
+                }),
+                PropertyPaneTextField('featuredAppThreeUrl', {
+                  label: 'Enter link Url (include http:// or https://)'
+                }),
+              ]
+            }
+          ]
+        },  
+        {
+          header: {
+            description: 'Featured Apps'
+          },
+          groups: [
+            {
+              groupName: 'App 4 Details',
+              groupFields: [
+                PropertyPaneTextField('featuredAppFourTitle', {
+                  label: 'Enter Title (alt tag)'
+                }),
+                PropertyPaneTextField('featuredAppFourImage', {
+                  label: 'Enter URL of image icon (70px X 70px)'
+                }),
+                PropertyPaneTextField('featuredAppFourUrl', {
+                  label: 'Enter link Url (include http:// or https://)'
+                }),
+              ]
+            }
+          ]
+        },  
+        {
+          header: {
+            description: 'Featured Apps'
+          },
+          groups: [
+            {
+              groupName: 'App 5 Details',
+              groupFields: [
+                PropertyPaneTextField('featuredAppFiveTitle', {
+                  label: 'Enter Title (alt tag)'
+                }),
+                PropertyPaneTextField('featuredAppFiveImage', {
+                  label: 'Enter URL of image icon (70px X 70px)'
+                }),
+                PropertyPaneTextField('featuredAppFiveUrl', {
+                  label: 'Enter link Url (include http:// or https://)'
+                }),
+              ]
+            }
+          ]
+        },  
+        {
+          header: {
+            description: 'Featured Apps'
+          },
+          groups: [
+            {
+              groupName: 'App 6 Details',
+              groupFields: [
+                PropertyPaneTextField('featuredAppSixTitle', {
+                  label: 'Enter Title (alt tag)'
+                }),
+                PropertyPaneTextField('featuredAppSixImage', {
+                  label: 'Enter URL of image icon (70px X 70px)'
+                }),
+                PropertyPaneTextField('featuredAppSixUrl', {
+                  label: 'Enter link Url (include http:// or https://)'
                 }),
               ]
             }
