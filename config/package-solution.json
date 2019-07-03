@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
   "solution": {
-    "name": "perform-people-directory",
-    "id": "732caf16-d6ca-44f6-ab53-33d769ec0277",
+    "name": "perform-app-directory",
+    "id": "21c361d1-704f-4cf9-8756-967fa092bc82",
     "version": "1.0.0.0",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true
   },
   "paths": {
-    "zippedPackage": "solution/perform-people-directory.sppkg"
+    "zippedPackage": "solution/perform-app-directory.sppkg"
   }
 }

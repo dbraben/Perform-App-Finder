@@ -1,0 +1,31 @@
+
+.media {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  margin-bottom:4px;
+  background-color: #eeeeee;
+  padding:10px;
+  border-bottom: 1px solid #8c8c8c;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+ a {
+   display: flex;
+   text-decoration: none;
+   color: #000000;
+
+ }
+ a:hover, a:active {
+  color: #0b79e0;
+ }
+.mediabody {
+   flex-grow: 1;
+}
+.producticon {
+  padding-right:10px;
+  width:80px;
+  margin-top:5px;
+}
+h3.app {
+  margin: 0px 0px 7px 0px;
+}

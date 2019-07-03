@@ -1,4 +1,4 @@
-## people-directory
+## app-directory
 
 This is where you include your WebPart documentation.
 
