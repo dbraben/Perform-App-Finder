@@ -27,7 +27,9 @@ export class IndexNavigation extends React.Component<IIndexNavigationProps, {}> 
         <Search
         searchQuery={this.props.searchQuery}
         onSearch={this.props.onSearch}
-        onClear={this.props.onSearchClear} />
+        onClear={this.props.onSearchClear}
+        showTitles={this.props.showTitles}
+        searchTitleText={this.props.searchTitleText} />
         <AppFeatured 
           featuredAppOneTitle={this.props.featuredAppOneTitle}
           featuredAppOneImage={this.props.featuredAppOneImage}
@@ -48,6 +50,8 @@ export class IndexNavigation extends React.Component<IIndexNavigationProps, {}> 
           featuredAppSixImage={this.props.featuredAppSixImage}
           featuredAppSixUrl={this.props.featuredAppSixUrl}
           showIcons={this.props.showIcons}
+          showTitles={this.props.showTitles}
+          featuredTitleText={this.props.featuredTitleText}
         />
       </div>
     );

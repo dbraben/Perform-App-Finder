@@ -1,32 +1,54 @@
 import * as React from 'react';
 import { IAppListProps } from '.';
-import {
-  Persona,
-  PersonaSize
-} from 'office-ui-fabric-react/lib/Persona';
-import * as strings from 'AppDirectoryWebPartStrings';
 import styles from './AppList.module.scss';
-import { Callout, DirectionalHint } from 'office-ui-fabric-react/lib/Callout';
 import { IAppListState } from './IAppListState';
-import { AppCallout } from '../AppCallout';
 
 export class AppList extends React.Component<IAppListProps, IAppListState> {
+  public wrapperRef;
   constructor(props: IAppListProps) {
     super(props);
 
     this.state = {
       showCallOut: false,
       calloutElement: null,
-      appitem: null
+      appitem: null,
+      show: true
     };
-
-   // this._onPersonaClicked = this._onPersonaClicked.bind(this);
+    //this._onPersonaClicked = this._onPersonaClicked.bind(this);
     this._onCalloutDismiss = this._onCalloutDismiss.bind(this);
+    // this.wrapperRef= React.createRef();
+    this.setWrapperRef = this.setWrapperRef.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
+  }
+  public componentDidMount() {
+    document.addEventListener('mousedown', this.handleClickOutside);
+  }
+
+  public componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClickOutside);
+  }
+
+  /**
+   * Set the wrapper ref
+   */
+  public setWrapperRef(node) {
+    this.wrapperRef = node;
+  }
+
+  /**
+   * Alert if clicked on outside of element
+   */
+  public handleClickOutside(event) {
+    if (this.wrapperRef && !this.wrapperRef.contains(event.target) && this.props.app.length > 0) {
+      this.setState({
+        show: false
+      });
+    }
   }
 
   public render(): React.ReactElement<IAppListProps> {
     return (
-      <div>
+      <div  ref={this.setWrapperRef} id='drop' className={(this.state.show === true ? styles.media : styles.media_hide)}>
         {this.props.app.length === 0 &&
           (this.props.selectedIndex !== 'Search' ||
             (this.props.selectedIndex === 'Search' &&
@@ -36,36 +58,30 @@ export class AppList extends React.Component<IAppListProps, IAppListState> {
               // a search query (but not when navigated to the Search tab without
               // providing a query yet)
           <div className='ms-textAlignCenter'></div>}
+          
         {this.props.app.length > 0 &&
           // for each retrieved appitem, create a appitema card with the retrieved
           // information
           this.props.app.map((p,i) => {
             return (
-
-              <div className={styles.media}>
-               <a href={p.link} title={p.title}>
-                <div className={styles.mediabody}>
-                  <img src={p.appIconUrl} className={styles.producticon} />
+              <div className={styles.list_groups}>
+                <div className={styles.list_items}>
+                  <a href={p.link} title={p.title}>
+                    <div className={styles.mediabody}>
+                      <img src={p.appIconUrl} className={styles.producticon} alt={p.title} title={p.title} />
+                    </div>
+                    <div className={styles.mediabody}>
+                      <h3 className={styles.app}>{p.title}, {p.manufacturer}</h3>
+                        {p.strapline}
+                    </div>
+                  </a>
                 </div>
-                <div className={styles.mediabody}>
-                  <h3 className={styles.app}>{p.title}, {p.manufacturer}</h3>
-                    {p.strapline}
-                </div>
-               </a>
               </div>
             );
           })
         }
       </div>
     );
-  }
-
-  private _onPersonasClicked = (index, appitem) => event => {
-    this.setState({
-      showCallOut: !this.state.showCallOut,
-      calloutElement: index,
-      appitem: appitem
-    });
   }
 
   private _onCalloutDismiss = (event) => {

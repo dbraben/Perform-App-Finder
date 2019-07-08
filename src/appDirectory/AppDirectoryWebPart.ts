@@ -35,6 +35,9 @@ export interface IAppDirectoryWebPartProps {
   featuredAppSixImage?: string;
   featuredAppSixUrl?: string;
   showIcons?: string;
+  showTitles?: string;
+  searchTitleText?: string;
+  featuredTitleText?: string;
 }
 
 
@@ -75,11 +78,33 @@ export default class AppDirectoryWebPart extends BaseClientSideWebPart<IAppDirec
         featuredAppSixImage: this.properties.featuredAppSixImage,
         featuredAppSixUrl: this.properties.featuredAppSixUrl,
         showIcons: this.properties.showIcons,
+        showTitles: this.properties.showTitles,
+        featuredTitleText: this.properties.featuredTitleText,
+        searchTitleText: this.properties.searchTitleText,
       }
     );
 
-    console.log(this.properties.PanelContent);
     ReactDom.render(element, this.domElement);
+    this.fixAllZIndex();
+  }
+
+  private fixAllZIndex = () => {
+
+    // Adjust z-index for web part zones
+    let zIndexContainer = document.querySelectorAll(".CanvasZoneContainer");
+    let zIndex = zIndexContainer.length;
+  
+    zIndexContainer.forEach((elem, index) => {
+      (<HTMLElement>elem).style.zIndex = (zIndex - index).toString();
+    });
+  
+    // Adjust z-index for web parts
+    let zIndexControlZone = document.querySelectorAll(".ControlZone");
+    zIndex = zIndexControlZone.length*5;
+    zIndexControlZone.forEach((elem, index) => {
+      (<HTMLElement>elem).style.zIndex = (zIndex - index).toString();
+      (<HTMLElement>elem).style.position = "relative";
+    });
   }
 
   protected get dataVersion(): Version {
@@ -110,14 +135,14 @@ export default class AppDirectoryWebPart extends BaseClientSideWebPart<IAppDirec
         },
         {
           header: {
-            description: 'Show Icons'
+            description: 'Featured App Icons'
           },
           groups: [
             {
-              groupName: 'Icon display',
+              groupName: 'Featured App display settings',
               groupFields: [
                 PropertyPaneChoiceGroup('showIcons', { 
-                  label: "Number of icons", 
+                  label: "Number of icons links to display", 
                   options: [ 
                     { key: '0', text: '0' }, 
                     { key: '1', text: '1' }, 
@@ -127,6 +152,32 @@ export default class AppDirectoryWebPart extends BaseClientSideWebPart<IAppDirec
                     { key: '5', text: '5' }, 
                     { key: '6', text: '6' },
                   ],
+                }),
+              ]
+            }
+          ]
+        },
+        {
+          header: {
+            description: 'Show Titles'
+          },
+          groups: [
+            {
+              groupName: 'Title properties',
+              groupFields: [
+                PropertyPaneChoiceGroup('showTitles', { 
+                  label: "Show titles within the app. These are above the imput field.", 
+                  options: [ 
+                    { key: '0', text: 'No' }, 
+                    { key: '1', text: 'Yes'},
+                    
+                  ],
+                }),
+                PropertyPaneTextField('searchTitleText', {
+                  label: 'Enter the Search title text. Auto default is Search Apps.'
+                }),
+                PropertyPaneTextField('featuredTitleText', {
+                  label: 'Enter the Featured title text. Auto default is Featured Apps.'
                 }),
               ]
             }

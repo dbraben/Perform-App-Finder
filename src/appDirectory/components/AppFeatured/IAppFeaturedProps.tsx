@@ -18,4 +18,6 @@ export interface IAppFeaturedProps {
   featuredAppSixImage?: string;
   featuredAppSixUrl?: string;
   showIcons?: string;
+  showTitles?:string;
+  featuredTitleText?: string;
 } 

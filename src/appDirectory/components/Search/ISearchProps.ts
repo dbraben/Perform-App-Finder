@@ -14,4 +14,6 @@ export interface ISearchProps {
    * Event handler for clearing the current search query
    */
   onClear: () => void;
+  showTitles?: string;
+  searchTitleText?: string;
 }

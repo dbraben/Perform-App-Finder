@@ -25,7 +25,6 @@ import * as strings from 'AppDirectoryWebPartStrings';
 export class AppDirectory extends React.Component<IAppDirectoryProps, IAppDirectoryState> {
   constructor(props: IAppDirectoryProps) {
     super(props);
-
     this.state = {
       loading: false,
       errorMessage: null,
@@ -101,7 +100,7 @@ export class AppDirectory extends React.Component<IAppDirectoryProps, IAppDirect
     // retrieve information about app using SharePoint App Search
     // sort results ascending by the last name%7B741dc85c-c127-4725-921c-cfb98d159773%7D
     this.props.spHttpClient
-      .get(`${this.props.webUrl}/_api/search/query?querytext='((Title:${query}+AND+ListId:6cc1c555-8aba-4d82-96be-1888165a73fa)+OR+(RefinableString113:${query}+AND+ListId:6cc1c555-8aba-4d82-96be-1888165a73fa)+OR+(RefinableString101:${query}+AND+ListId:6cc1c555-8aba-4d82-96be-1888165a73fa)+OR+(RefinableString102:${query}+AND+ListId:6cc1c555-8aba-4d82-96be-1888165a73fa))'&selectproperties='Title,RefinableString101,RefinableString102,RefinableString110,RefinableString112,RefinableString113'&rowlimit=500'`, SPHttpClient.configurations.v1, {
+      .get(`${this.props.webUrl}/_api/search/query?querytext='((Title:${query}+AND+ListId:246fbc49-b102-439d-ac77-524615cee25d)+OR+(RefinableString113:${query}+AND+ListId:246fbc49-b102-439d-ac77-524615cee25d)+OR+(RefinableString101:${query}+AND+ListId:246fbc49-b102-439d-ac77-524615cee25d)+OR+(RefinableString102:${query}+AND+ListId:246fbc49-b102-439d-ac77-524615cee25d))'&selectproperties='Title,RefinableString101,RefinableString102,RefinableString110,RefinableString112,RefinableString113'&rowlimit=500'`, SPHttpClient.configurations.v1, {
      // .get(`${this.props.webUrl}/_api/search/query?querytext='(Title:${query}+AND+ListId:418745E4-71BA-4937-906A-4A44C9AF599F)'&selectproperties='Title,Description,RefinableString101,RefinableString102,RefinableString106,RefinableString110,RefinableString105'&rowlimit=500'`, SPHttpClient.configurations.v1, {
         headers: headers
       })
@@ -121,7 +120,7 @@ export class AppDirectory extends React.Component<IAppDirectoryProps, IAppDirect
         }
 
 
-       console.log(res.PrimaryQueryResult.RelevantResults.Table.Rows);
+       // console.log(res.PrimaryQueryResult.RelevantResults.Table.Rows);
        // convert the SharePoint App Search results to an array of app
        // filter out specific domains i.e. dazn, hotmail etc based upon the email value
        
@@ -255,6 +254,9 @@ export class AppDirectory extends React.Component<IAppDirectoryProps, IAppDirect
           featuredAppSixImage={this.props.featuredAppSixImage}
           featuredAppSixUrl={this.props.featuredAppSixUrl}
           showIcons={this.props.showIcons}
+          showTitles={this.props.showTitles}
+          featuredTitleText= {this.props.featuredTitleText}
+          searchTitleText={this.props.searchTitleText}
         />
         {loading &&
           // if the component is loading its data, show the spinner
@@ -270,6 +272,7 @@ export class AppDirectory extends React.Component<IAppDirectoryProps, IAppDirect
               selectedIndex={selectedIndex}
               hasSearchQuery={searchQuery !== ''}
               app={app} 
+              show={true}
             />
             </div>
             <div className={styles.hideMobile}>

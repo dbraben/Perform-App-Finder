@@ -21,7 +21,7 @@ export class Search extends React.Component<ISearchProps, {}> {
   public render(): React.ReactElement<ISearchProps> {
     return (
       <div className={styles.search}>
-          <h3>Search Apps</h3>
+         {this.props.showTitles === '1' ? <h3>{this.props.searchTitleText || null ? this.props.searchTitleText : 'Search Apps'}</h3> : ''}
           <SearchBox
             placeholder={strings.SearchBoxPlaceholder}
             onChange={this._handleSearch}

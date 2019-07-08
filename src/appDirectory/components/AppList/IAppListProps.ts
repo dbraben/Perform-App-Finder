@@ -16,4 +16,8 @@ export interface IAppListProps {
    * True if the user is searching for app
    */
   hasSearchQuery: boolean;
+  /**
+   * True if the user is clicking within the list
+   */
+  show: boolean;
 }

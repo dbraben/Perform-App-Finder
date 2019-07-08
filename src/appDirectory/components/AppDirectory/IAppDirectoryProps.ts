@@ -55,4 +55,7 @@ export interface IAppDirectoryProps {
   featuredAppSixImage?: string;
   featuredAppSixUrl?: string;
   showIcons?: string;
+  showTitles?: string;
+  featuredTitleText: string;
+  searchTitleText: string;
 }
